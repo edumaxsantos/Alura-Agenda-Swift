@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class HomeTableViewController: UITableViewController, UISearchBarDelegate {
+class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFetchedResultsControllerDelegate {
     
     //MARK: - Variáveis
     
@@ -26,6 +26,7 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
         self.configuraSearch()
         self.recuperaAluno()
+        
     }
     
     // MARK: - Métodos
@@ -41,6 +42,7 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate {
         let ordenaPorNome = NSSortDescriptor(key: "nome", ascending: true)
         pesquisaAluno.sortDescriptors = [ordenaPorNome]
         gerenciadorDeResultados = NSFetchedResultsController(fetchRequest: pesquisaAluno, managedObjectContext: contexto, sectionNameKeyPath: nil, cacheName: nil)
+        gerenciadorDeResultados?.delegate = self
         do {
             try gerenciadorDeResultados?.performFetch()
         } catch {
@@ -61,11 +63,7 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate {
             return cell
         }
         
-        cell.labelNomeDoAluno.text = aluno.nome
-        
-        if let imagemDoAluno = aluno.foto as? UIImage {
-            cell.imageAluno.image = imagemDoAluno
-        }
+        cell.configuraCelula(aluno)
 
         return cell
     }
@@ -81,6 +79,17 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate {
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
+    }
+    
+    // MARK: - Fetched Results Controller Delegate
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+            case .delete:
+                // implementar
+            break
+            default:
+                tableView.reloadData()
+        }
     }
 
 }
