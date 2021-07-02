@@ -55,6 +55,18 @@ class AlunoViewController: UIViewController, ImagePickerFotoSelecionada {
         imagePicker.delegate = self
     }
     
+    func mostrarMultimidia(_ opcao: MenuOpcoes) {
+        let multimidia = UIImagePickerController()
+        multimidia.delegate = imagePicker
+
+        if opcao == .camera {
+            multimidia.sourceType = .camera
+        } else {
+            multimidia.sourceType = .photoLibrary
+        }
+        self.present(multimidia, animated: true)
+    }
+    
     // MARK: - Delegate
     func imagePickerFotoSelecionada(_ foto: UIImage) {
         imageAluno.image = foto
@@ -63,17 +75,12 @@ class AlunoViewController: UIViewController, ImagePickerFotoSelecionada {
     // MARK: - IBActions
     
     @IBAction func buttonFoto(_ sender: UIButton) {
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            let multimidia = UIImagePickerController()
-            multimidia.sourceType = .camera
-            multimidia.delegate = imagePicker
-            self.present(multimidia, animated: true)
-        } else {
-            let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
-            let ac = UIAlertController(title: "Sem câmera", message: "Seu dispositivo não possui câmera", preferredStyle: .alert)
-            ac.addAction(okButton)
-            self.present(ac, animated: true)
+        
+        let menu = imagePicker.menuDeOpcoes { (opcao) in
+            self.mostrarMultimidia(opcao)
         }
+        present(menu, animated: true)
+        
     }
     
     @IBAction func stepperNota(_ sender: UIStepper) {
