@@ -35,7 +35,7 @@ class MapaViewController: UIViewController {
     
     func localizacaoInicial() {
         print("localizacao inicial")
-        Localizacao().converteEnderecoEmCoordenadas(endereco: "Caelum - São Paulo - SP") { localizacaoEncontrada in
+        Localizacao().converteEnderecoEmCoordenadas(endereco: "Caelum, São Paulo, SP") { localizacaoEncontrada in
             print("Localização foi encontrada")
             print(localizacaoEncontrada)
             let pino = self.configuraPino(titulo: "Caelum", localizacao: localizacaoEncontrada)
