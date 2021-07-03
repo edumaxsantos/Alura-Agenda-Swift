@@ -118,6 +118,8 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
         
         cell.configuraCelula(aluno)
         cell.addGestureRecognizer(longPress)
+        
+        longPress.view?.tag = indexPath.row
 
         return cell
     }
