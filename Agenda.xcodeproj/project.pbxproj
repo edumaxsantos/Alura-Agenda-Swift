@@ -17,6 +17,7 @@
 		03AA176D1FC8515A003CB2B8 /* AlunoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AA176C1FC8515A003CB2B8 /* AlunoViewController.swift */; };
 		FB4576DA268FB49A00512C59 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4576D9268FB49A00512C59 /* ImagePicker.swift */; };
 		FB4576E02690108900512C59 /* MenuOpcoesAlunos.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4576DF2690108900512C59 /* MenuOpcoesAlunos.swift */; };
+		FB4576E2269015CF00512C59 /* Mensagem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4576E1269015CF00512C59 /* Mensagem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		03AA176C1FC8515A003CB2B8 /* AlunoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlunoViewController.swift; sourceTree = "<group>"; };
 		FB4576D9268FB49A00512C59 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		FB4576DF2690108900512C59 /* MenuOpcoesAlunos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOpcoesAlunos.swift; sourceTree = "<group>"; };
+		FB4576E1269015CF00512C59 /* Mensagem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mensagem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 			children = (
 				FB4576D9268FB49A00512C59 /* ImagePicker.swift */,
 				FB4576DF2690108900512C59 /* MenuOpcoesAlunos.swift */,
+				FB4576E1269015CF00512C59 /* Mensagem.swift */,
 			);
 			path = Componentes;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				FB4576DA268FB49A00512C59 /* ImagePicker.swift in Sources */,
 				03AA17681FC843B1003CB2B8 /* HomeTableViewCell.swift in Sources */,
 				FB4576E02690108900512C59 /* MenuOpcoesAlunos.swift in Sources */,
+				FB4576E2269015CF00512C59 /* Mensagem.swift in Sources */,
 				03AA174E1FC84154003CB2B8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
