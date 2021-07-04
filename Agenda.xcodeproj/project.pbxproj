@@ -15,6 +15,7 @@
 		03AA17661FC84353003CB2B8 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AA17651FC84353003CB2B8 /* HomeTableViewController.swift */; };
 		03AA17681FC843B1003CB2B8 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AA17671FC843B1003CB2B8 /* HomeTableViewCell.swift */; };
 		03AA176D1FC8515A003CB2B8 /* AlunoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AA176C1FC8515A003CB2B8 /* AlunoViewController.swift */; };
+		939E1768764077A93805B379 /* Pods_Agenda.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2D9ECE862B784E6CC27AD8 /* Pods_Agenda.framework */; };
 		FB4576DA268FB49A00512C59 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4576D9268FB49A00512C59 /* ImagePicker.swift */; };
 		FB4576E02690108900512C59 /* MenuOpcoesAlunos.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4576DF2690108900512C59 /* MenuOpcoesAlunos.swift */; };
 		FB4576E2269015CF00512C59 /* Mensagem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4576E1269015CF00512C59 /* Mensagem.swift */; };
@@ -38,6 +39,9 @@
 		03AA17651FC84353003CB2B8 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		03AA17671FC843B1003CB2B8 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		03AA176C1FC8515A003CB2B8 /* AlunoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlunoViewController.swift; sourceTree = "<group>"; };
+		1473DCBCD2FF7AE43A0332B3 /* Pods-Agenda.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Agenda.debug.xcconfig"; path = "Target Support Files/Pods-Agenda/Pods-Agenda.debug.xcconfig"; sourceTree = "<group>"; };
+		5D2D9ECE862B784E6CC27AD8 /* Pods_Agenda.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Agenda.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C259BE473ABEDBDD129BB562 /* Pods-Agenda.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Agenda.release.xcconfig"; path = "Target Support Files/Pods-Agenda/Pods-Agenda.release.xcconfig"; sourceTree = "<group>"; };
 		FB4576D9268FB49A00512C59 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		FB4576DF2690108900512C59 /* MenuOpcoesAlunos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOpcoesAlunos.swift; sourceTree = "<group>"; };
 		FB4576E1269015CF00512C59 /* Mensagem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mensagem.swift; sourceTree = "<group>"; };
@@ -55,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				939E1768764077A93805B379 /* Pods_Agenda.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +71,8 @@
 			children = (
 				03AA174C1FC84154003CB2B8 /* Agenda */,
 				03AA174B1FC84154003CB2B8 /* Products */,
+				093F98E4EDCEB340FE297DE2 /* Pods */,
+				AD9736F12EF31625A157B536 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -145,6 +152,24 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		093F98E4EDCEB340FE297DE2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1473DCBCD2FF7AE43A0332B3 /* Pods-Agenda.debug.xcconfig */,
+				C259BE473ABEDBDD129BB562 /* Pods-Agenda.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AD9736F12EF31625A157B536 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5D2D9ECE862B784E6CC27AD8 /* Pods_Agenda.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FB4576D8268FB42E00512C59 /* Componentes */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,9 +231,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03AA175F1FC84154003CB2B8 /* Build configuration list for PBXNativeTarget "Agenda" */;
 			buildPhases = (
+				787903748F83E9B9C947121A /* [CP] Check Pods Manifest.lock */,
 				03AA17461FC84154003CB2B8 /* Sources */,
 				03AA17471FC84154003CB2B8 /* Frameworks */,
 				03AA17481FC84154003CB2B8 /* Resources */,
+				AAF6DEAC7E03EEB4A93CC43A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -266,6 +293,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		787903748F83E9B9C947121A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Agenda-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAF6DEAC7E03EEB4A93CC43A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Agenda/Pods-Agenda-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Agenda/Pods-Agenda-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		03AA17461FC84154003CB2B8 /* Sources */ = {
@@ -426,6 +496,7 @@
 		};
 		03AA17601FC84154003CB2B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1473DCBCD2FF7AE43A0332B3 /* Pods-Agenda.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -443,6 +514,7 @@
 		};
 		03AA17611FC84154003CB2B8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C259BE473ABEDBDD129BB562 /* Pods-Agenda.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
