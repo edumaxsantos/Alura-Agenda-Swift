@@ -42,7 +42,7 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
     
     func configuraSearch() {
         self.searchController.searchBar.delegate = self
-        self.searchController.dimsBackgroundDuringPresentation = false
+        self.searchController.obscuresBackgroundDuringPresentation = false
         self.navigationItem.searchController = searchController
     }
     
