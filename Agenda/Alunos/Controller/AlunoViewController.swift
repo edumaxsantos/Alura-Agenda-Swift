@@ -85,7 +85,7 @@ class AlunoViewController: UIViewController, ImagePickerFotoSelecionada {
         guard let nota = textFieldNota.text else { return [:] }
         
         return [
-            "id": String(describing: UUID()),
+            "id": String(describing: UUID()).lowercased(),
             "nome": nome,
             "endereco": endereco,
             "telefone": telefone,
