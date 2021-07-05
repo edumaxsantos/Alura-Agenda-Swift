@@ -27,6 +27,8 @@
 		FB45772426925C8700512C59 /* Pino.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB45772326925C8700512C59 /* Pino.swift */; };
 		FB45772726925FBB00512C59 /* icon_caelum.png in Resources */ = {isa = PBXBuildFile; fileRef = FB45772626925FBB00512C59 /* icon_caelum.png */; };
 		FB45772A26927D4E00512C59 /* AlunoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB45772926927D4E00512C59 /* AlunoAPI.swift */; };
+		FB45772C2692893100512C59 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB45772B2692893100512C59 /* Repository.swift */; };
+		FB45772E2692898800512C59 /* AlunoDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB45772D2692898800512C59 /* AlunoDAO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		FB45772326925C8700512C59 /* Pino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pino.swift; sourceTree = "<group>"; };
 		FB45772626925FBB00512C59 /* icon_caelum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_caelum.png; sourceTree = "<group>"; };
 		FB45772926927D4E00512C59 /* AlunoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlunoAPI.swift; sourceTree = "<group>"; };
+		FB45772B2692893100512C59 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		FB45772D2692898800512C59 /* AlunoDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlunoDAO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +234,8 @@
 			isa = PBXGroup;
 			children = (
 				FB45772926927D4E00512C59 /* AlunoAPI.swift */,
+				FB45772B2692893100512C59 /* Repository.swift */,
+				FB45772D2692898800512C59 /* AlunoDAO.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -355,6 +361,7 @@
 				03AA176D1FC8515A003CB2B8 /* AlunoViewController.swift in Sources */,
 				FB45772A26927D4E00512C59 /* AlunoAPI.swift in Sources */,
 				FB45772426925C8700512C59 /* Pino.swift in Sources */,
+				FB45772E2692898800512C59 /* AlunoDAO.swift in Sources */,
 				03AA17661FC84353003CB2B8 /* HomeTableViewController.swift in Sources */,
 				03AA17561FC84154003CB2B8 /* Agenda.xcdatamodeld in Sources */,
 				FB4576DA268FB49A00512C59 /* ImagePicker.swift in Sources */,
@@ -363,6 +370,7 @@
 				FB4576E02690108900512C59 /* MenuOpcoesAlunos.swift in Sources */,
 				FB4576E2269015CF00512C59 /* Mensagem.swift in Sources */,
 				FB4576ED2690F5F300512C59 /* Notificacoes.swift in Sources */,
+				FB45772C2692893100512C59 /* Repository.swift in Sources */,
 				FB4576E82690C76200512C59 /* MapaViewController.swift in Sources */,
 				03AA174E1FC84154003CB2B8 /* AppDelegate.swift in Sources */,
 				FB4576E42690C3D600512C59 /* Localizacao.swift in Sources */,

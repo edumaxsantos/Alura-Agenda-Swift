@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 
 class AlunoViewController: UIViewController, ImagePickerFotoSelecionada {
     
@@ -25,10 +24,7 @@ class AlunoViewController: UIViewController, ImagePickerFotoSelecionada {
     @IBOutlet weak var textFieldNota: UITextField!
     
     // Mark: - Atributos
-    var contexto: NSManagedObjectContext {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.persistentContainer.viewContext
-    }
+
     let imagePicker = ImagePicker()
     var aluno: Aluno?
     
@@ -119,25 +115,12 @@ class AlunoViewController: UIViewController, ImagePickerFotoSelecionada {
     }
     
     @IBAction func buttonSalvar(_ sender: UIButton) {
-        if aluno == nil {
-            aluno = Aluno(context: contexto)
-        }
-        aluno?.nome = textFieldNome.text
-        aluno?.endereco = textFieldEndereco.text
-        aluno?.telefone = textFieldTelefone.text
-        aluno?.site = textFieldSite.text
-        aluno?.nota = (textFieldNota.text! as NSString).doubleValue
-        aluno?.foto = imageAluno.image
-        do {
-            try contexto.save()
-            navigationController?.popViewController(animated: true)
-        } catch {
-            print(error.localizedDescription)
-        }
+        
         
         let json = montaDicionarioDeParametros()
         
-        AlunoAPI().salvaAlunosNoServidor(parametros: [json])
+        Repository().salvaAluno(aluno: json)
+        navigationController?.popViewController(animated: true)
     }
     
 }
