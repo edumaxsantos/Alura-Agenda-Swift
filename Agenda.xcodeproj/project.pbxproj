@@ -26,6 +26,7 @@
 		FB4576EF269163B100512C59 /* AutenticacaoLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4576EE269163B100512C59 /* AutenticacaoLocal.swift */; };
 		FB45772426925C8700512C59 /* Pino.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB45772326925C8700512C59 /* Pino.swift */; };
 		FB45772726925FBB00512C59 /* icon_caelum.png in Resources */ = {isa = PBXBuildFile; fileRef = FB45772626925FBB00512C59 /* icon_caelum.png */; };
+		FB45772A26927D4E00512C59 /* AlunoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB45772926927D4E00512C59 /* AlunoAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		FB4576EE269163B100512C59 /* AutenticacaoLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutenticacaoLocal.swift; sourceTree = "<group>"; };
 		FB45772326925C8700512C59 /* Pino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pino.swift; sourceTree = "<group>"; };
 		FB45772626925FBB00512C59 /* icon_caelum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_caelum.png; sourceTree = "<group>"; };
+		FB45772926927D4E00512C59 /* AlunoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlunoAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 		03AA17691FC84A2D003CB2B8 /* Alunos */ = {
 			isa = PBXGroup;
 			children = (
+				FB45772826927D4100512C59 /* Model */,
 				03AA176B1FC84A2D003CB2B8 /* View */,
 				03AA176A1FC84A2D003CB2B8 /* Controller */,
 			);
@@ -158,7 +161,6 @@
 				1473DCBCD2FF7AE43A0332B3 /* Pods-Agenda.debug.xcconfig */,
 				C259BE473ABEDBDD129BB562 /* Pods-Agenda.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -222,6 +224,14 @@
 				FB45772626925FBB00512C59 /* icon_caelum.png */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		FB45772826927D4100512C59 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FB45772926927D4E00512C59 /* AlunoAPI.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03AA176D1FC8515A003CB2B8 /* AlunoViewController.swift in Sources */,
+				FB45772A26927D4E00512C59 /* AlunoAPI.swift in Sources */,
 				FB45772426925C8700512C59 /* Pino.swift in Sources */,
 				03AA17661FC84353003CB2B8 /* HomeTableViewController.swift in Sources */,
 				03AA17561FC84154003CB2B8 /* Agenda.xcdatamodeld in Sources */,

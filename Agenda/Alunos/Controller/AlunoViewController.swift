@@ -80,6 +80,24 @@ class AlunoViewController: UIViewController, ImagePickerFotoSelecionada {
         self.present(multimidia, animated: true)
     }
     
+    func montaDicionarioDeParametros() -> Dictionary<String, String> {
+        
+        guard let nome = textFieldNome.text else { return [:] }
+        guard let endereco = textFieldEndereco.text else { return [:] }
+        guard let telefone = textFieldTelefone.text else { return [:] }
+        guard let site = textFieldSite.text else { return [:] }
+        guard let nota = textFieldNota.text else { return [:] }
+        
+        return [
+            "id": String(describing: UUID()),
+            "nome": nome,
+            "endereco": endereco,
+            "telefone": telefone,
+            "site": site,
+            "nota": nota
+        ]
+    }
+    
     // MARK: - Delegate
     func imagePickerFotoSelecionada(_ foto: UIImage) {
         imageAluno.image = foto
@@ -116,6 +134,10 @@ class AlunoViewController: UIViewController, ImagePickerFotoSelecionada {
         } catch {
             print(error.localizedDescription)
         }
+        
+        let json = montaDicionarioDeParametros()
+        
+        AlunoAPI().salvaAlunosNoServidor(parametros: [json])
     }
     
 }
