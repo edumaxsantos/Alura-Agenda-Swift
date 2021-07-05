@@ -148,15 +148,15 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate {
     // MARK: - SearchBarDelegate
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        guard let nomeDoAluno = searchBar.text else { return }
-//        recuperaAluno(filtro: nomeDoAluno)
-//        tableView.reloadData()
-        
+        if let texto = searchBar.text {
+            alunos = Filtro().filtraAlunos(listaDeAlunos: alunos, texto: texto)
+        }
+        tableView.reloadData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//        recuperaAluno()
-//        tableView.reloadData()
+        alunos = AlunoDAO().recuperaAlunos()
+        tableView.reloadData()
     }
 
 }

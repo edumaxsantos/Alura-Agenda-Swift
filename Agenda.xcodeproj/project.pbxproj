@@ -31,6 +31,7 @@
 		FB45772E2692898800512C59 /* AlunoDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB45772D2692898800512C59 /* AlunoDAO.swift */; };
 		FB4577302692B6CF00512C59 /* LigacaoTelefonica.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB45772F2692B6CF00512C59 /* LigacaoTelefonica.swift */; };
 		FB4577322692B7C500512C59 /* Safari.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4577312692B7C500512C59 /* Safari.swift */; };
+		FB4577342692BA4F00512C59 /* Filtro.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4577332692BA4F00512C59 /* Filtro.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		FB45772D2692898800512C59 /* AlunoDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlunoDAO.swift; sourceTree = "<group>"; };
 		FB45772F2692B6CF00512C59 /* LigacaoTelefonica.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LigacaoTelefonica.swift; sourceTree = "<group>"; };
 		FB4577312692B7C500512C59 /* Safari.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Safari.swift; sourceTree = "<group>"; };
+		FB4577332692BA4F00512C59 /* Filtro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filtro.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 				FB4576EE269163B100512C59 /* AutenticacaoLocal.swift */,
 				FB45772F2692B6CF00512C59 /* LigacaoTelefonica.swift */,
 				FB4577312692B7C500512C59 /* Safari.swift */,
+				FB4577332692BA4F00512C59 /* Filtro.swift */,
 			);
 			path = Componentes;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				03AA176D1FC8515A003CB2B8 /* AlunoViewController.swift in Sources */,
 				FB45772A26927D4E00512C59 /* AlunoAPI.swift in Sources */,
 				FB45772426925C8700512C59 /* Pino.swift in Sources */,
+				FB4577342692BA4F00512C59 /* Filtro.swift in Sources */,
 				FB45772E2692898800512C59 /* AlunoDAO.swift in Sources */,
 				03AA17661FC84353003CB2B8 /* HomeTableViewController.swift in Sources */,
 				03AA17561FC84154003CB2B8 /* Agenda.xcdatamodeld in Sources */,
