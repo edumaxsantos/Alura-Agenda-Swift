@@ -10,12 +10,12 @@ import UIKit
 import CoreData
 import SafariServices
 
-class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFetchedResultsControllerDelegate {
+class HomeTableViewController: UITableViewController, UISearchBarDelegate {
     
     //MARK: - Variáveis
     
     let searchController = UISearchController(searchResultsController: nil)
-    var gerenciadorDeResultados: NSFetchedResultsController<Aluno>?
+    
     var contexto: NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
@@ -46,25 +46,7 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
         self.navigationItem.searchController = searchController
     }
     
-    func recuperaAluno(filtro: String = "") {
-        
-        AlunoAPI().recuperaAlunos()
-        let pesquisaAluno: NSFetchRequest<Aluno> = Aluno.fetchRequest()
-        let ordenaPorNome = NSSortDescriptor(key: "nome", ascending: true)
-        
-        if verificaFiltro(filtro) {
-            pesquisaAluno.predicate = filtraAluno(filtro)
-        }
-        
-        pesquisaAluno.sortDescriptors = [ordenaPorNome]
-        gerenciadorDeResultados = NSFetchedResultsController(fetchRequest: pesquisaAluno, managedObjectContext: contexto, sectionNameKeyPath: nil, cacheName: nil)
-        gerenciadorDeResultados?.delegate = self
-        do {
-            try gerenciadorDeResultados?.performFetch()
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
+    
     
     func filtraAluno(_ filtro: String) -> NSPredicate {
         return NSPredicate(format: "nome CONTAINS %@", filtro)

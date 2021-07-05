@@ -15,6 +15,24 @@ class AlunoDAO: NSObject {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
     }
+    var gerenciadorDeResultados: NSFetchedResultsController<Aluno>?
+    
+    func recuperaAlunos() -> Array<Aluno> {
+        let pesquisaAluno: NSFetchRequest<Aluno> = Aluno.fetchRequest()
+        let ordenaPorNome = NSSortDescriptor(key: "nome", ascending: true)
+        
+        pesquisaAluno.sortDescriptors = [ordenaPorNome]
+        gerenciadorDeResultados = NSFetchedResultsController(fetchRequest: pesquisaAluno, managedObjectContext: contexto, sectionNameKeyPath: nil, cacheName: nil)
+        
+        do {
+            try gerenciadorDeResultados?.performFetch()
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        guard let listaDeAlunos = gerenciadorDeResultados?.fetchedObjects else { return [] }
+        return listaDeAlunos
+    }
 
     func salvaAluno(dicionarioDeAluno: Dictionary<String, Any>) {
         let aluno = Aluno(context: contexto)

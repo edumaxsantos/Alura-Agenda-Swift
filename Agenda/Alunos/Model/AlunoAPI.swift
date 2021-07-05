@@ -12,7 +12,7 @@ import Alamofire
 class AlunoAPI: NSObject {
     
     // MARK: - GET
-    func recuperaAlunos() {
+    func recuperaAlunos(completion: @escaping () -> Void) {
         AF.request("http://localhost:8080/api/aluno", method: .get).responseJSON { response in
             switch response.result {
                 case let .success(result):
@@ -21,10 +21,12 @@ class AlunoAPI: NSObject {
                         for dicionarioDeAluno in listaDeAlunos {
                             AlunoDAO().salvaAluno(dicionarioDeAluno: dicionarioDeAluno)
                         }
+                        completion()
                     }
                     break
                 case let .failure(error):
                     print(error.localizedDescription)
+                    completion()
                     break
             }
         }
