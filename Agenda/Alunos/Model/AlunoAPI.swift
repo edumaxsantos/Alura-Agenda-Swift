@@ -16,7 +16,12 @@ class AlunoAPI: NSObject {
         AF.request("http://localhost:8080/api/aluno", method: .get).responseJSON { response in
             switch response.result {
                 case let .success(result):
-                    print(result)
+                    if let resposta = result as? Dictionary<String, Any> {
+                        guard let listaDeAlunos = resposta["alunos"] as? Array<Dictionary<String, Any>> else { return }
+                        for dicionarioDeAluno in listaDeAlunos {
+                            AlunoDAO().salvaAluno(dicionarioDeAluno: dicionarioDeAluno)
+                        }
+                    }
                     break
                 case let .failure(error):
                     print(error.localizedDescription)
