@@ -15,21 +15,20 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate {
     //MARK: - Variáveis
     
     let searchController = UISearchController(searchResultsController: nil)
-    
-    var contexto: NSManagedObjectContext {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.persistentContainer.viewContext
-    }
     var alunoViewController: AlunoViewController?
     var mensagem = Mensagem()
+    var alunos: Array<Aluno> = []
     
     // MARK: - View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configuraSearch()
-        self.recuperaAluno()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        recuperaAlunos()
     }
     
     // MARK: - Métodos
@@ -37,6 +36,13 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editar" {
             alunoViewController = segue.destination as? AlunoViewController
+        }
+    }
+    
+    func recuperaAlunos() {
+        Repository().recuperaAlunos { listaDeAlunos in
+            self.alunos = listaDeAlunos
+            self.tableView.reloadData()
         }
     }
     
@@ -61,7 +67,7 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate {
     
     @objc func abrirActionSheet(_ longPress: UILongPressGestureRecognizer) {
         if longPress.state == .began {
-            guard let alunoSelecionado = gerenciadorDeResultados?.fetchedObjects?[(longPress.view?.tag)!] else { return }
+            let alunoSelecionado = alunos[(longPress.view?.tag)!]
             let menu = MenuOpcoesAlunos().configuraMenuDeOpcoesDoAluno { (opcao) in
                 switch opcao {
                     case .sms:
@@ -119,7 +125,7 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return gerenciadorDeResultados?.fetchedObjects?.count ?? 0
+        return alunos.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -127,9 +133,7 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate {
         
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(abrirActionSheet(_:)))
         
-        guard let aluno = gerenciadorDeResultados?.fetchedObjects![indexPath.row] else {
-            return cell
-        }
+        let aluno = alunos[indexPath.row]
         
         cell.configuraCelula(aluno)
         cell.addGestureRecognizer(longPress)
@@ -148,13 +152,13 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate {
             AutenticacaoLocal().autorizaUsuario { autenticado in
                 if autenticado {
                     DispatchQueue.main.async {
-                        guard let alunoSelecionado = self.gerenciadorDeResultados?.fetchedObjects![indexPath.row] else { return }
-                        self.contexto.delete(alunoSelecionado)
-                        do {
-                            try self.contexto.save()
-                        } catch {
-                            print(error.localizedDescription)
-                        }
+//                        guard let alunoSelecionado = self.gerenciadorDeResultados?.fetchedObjects![indexPath.row] else { return }
+//                        self.contexto.delete(alunoSelecionado)
+//                        do {
+//                            try self.contexto.save()
+//                        } catch {
+//                            print(error.localizedDescription)
+//                        }
                     }
                 }
             }
@@ -166,7 +170,7 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let alunoSelecionado = gerenciadorDeResultados?.fetchedObjects![indexPath.row] else { return }
+        let alunoSelecionado = alunos[indexPath.row]
         
         alunoViewController?.aluno = alunoSelecionado
     }
@@ -184,8 +188,7 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     @IBAction func buttonCalculaMedia(_ sender: UIBarButtonItem) {
-        guard let listaDeAlunos = gerenciadorDeResultados?.fetchedObjects else { return }
-        CalculaMediaAPI().calculaMediaGeralDosAlunos(alunos: listaDeAlunos, sucesso: { dicionario in
+        CalculaMediaAPI().calculaMediaGeralDosAlunos(alunos: alunos, sucesso: { dicionario in
             DispatchQueue.main.async {
                 if let alerta = Notificacoes().exibeNotificacaoDeMediaDosAlunos(dicionarioDeMedia: dicionario) {
                     self.present(alerta, animated: true)
@@ -205,15 +208,15 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate {
     // MARK: - SearchBarDelegate
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let nomeDoAluno = searchBar.text else { return }
-        recuperaAluno(filtro: nomeDoAluno)
-        tableView.reloadData()
+//        guard let nomeDoAluno = searchBar.text else { return }
+//        recuperaAluno(filtro: nomeDoAluno)
+//        tableView.reloadData()
         
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        recuperaAluno()
-        tableView.reloadData()
+//        recuperaAluno()
+//        tableView.reloadData()
     }
 
 }
