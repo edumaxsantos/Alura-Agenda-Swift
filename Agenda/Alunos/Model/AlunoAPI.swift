@@ -42,5 +42,18 @@ class AlunoAPI: NSObject {
         requisicao.addValue("application/json", forHTTPHeaderField: "Content-Type")
         AF.request(requisicao).resume()
     }
+    
+    // MARK: - DELETE
+    func deletaAluno(id: String) {
+        AF.request("http://localhost:8080/api/aluno/\(id)", method: .delete).responseJSON { resposta in
+            switch resposta.result {
+                case let .failure(error):
+                    print(error.localizedDescription)
+                    break
+                default:
+                    break
+            }
+        }
+    }
 
 }

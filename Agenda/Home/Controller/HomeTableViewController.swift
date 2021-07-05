@@ -152,6 +152,8 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate {
             AutenticacaoLocal().autorizaUsuario { autenticado in
                 if autenticado {
                     DispatchQueue.main.async {
+                        let alunoSelecionado = self.alunos[indexPath.row]
+                        Repository().deletaAluno(aluno: alunoSelecionado)
 //                        guard let alunoSelecionado = self.gerenciadorDeResultados?.fetchedObjects![indexPath.row] else { return }
 //                        self.contexto.delete(alunoSelecionado)
 //                        do {
@@ -160,6 +162,8 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate {
 //                            print(error.localizedDescription)
 //                        }
                     }
+                } else {
+                    print("Usuario não autenticado")
                 }
             }
             

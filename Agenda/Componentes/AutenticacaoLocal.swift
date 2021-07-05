@@ -20,6 +20,8 @@ class AutenticacaoLocal: NSObject {
             contexto.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "autenticação necessária para apagar aluno") { resposta, erro in
                 completion(resposta)
             }
+        } else {
+            print(error?.localizedDescription)
         }
     }
 }
