@@ -21,7 +21,7 @@ class AutenticacaoLocal: NSObject {
                 completion(resposta)
             }
         } else {
-            print(error?.localizedDescription)
+            print(error!.localizedDescription)
         }
     }
 }

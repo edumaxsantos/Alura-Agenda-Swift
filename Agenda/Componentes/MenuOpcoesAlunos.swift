@@ -22,21 +22,27 @@ class MenuOpcoesAlunos: NSObject {
         menu.addAction(sms)
         
         let ligacao = UIAlertAction(title: "ligar", style: .default) { (acao) in
+            LigacaoTelefonica().fazLigacao(alunoSelecionado)
         }
         
         menu.addAction(ligacao)
         
         let waze = UIAlertAction(title: "localizar no waze", style: .default) { (acao) in
+            Localizacao().localizaAlunoNoWaze(alunoSelecionado)
         }
         
         menu.addAction(waze)
         
         let mapa = UIAlertAction(title: "localizar no mapa", style: .default) { acao in
+            let mapa = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mapa") as! MapaViewController
+            mapa.aluno = alunoSelecionado
+            navigation.pushViewController(mapa, animated: true)
         }
         
         menu.addAction(mapa)
         
         let web = UIAlertAction(title: "abrir site", style: .default) { acao in
+            Safari().abrePaginaWeb(alunoSelecionado, controller: viewController)
         }
         
         menu.addAction(web)
