@@ -11,6 +11,21 @@ import Alamofire
 
 class AlunoAPI: NSObject {
     
+    // MARK: - GET
+    func recuperaAlunos() {
+        AF.request("http://localhost:8080/api/aluno", method: .get).responseJSON { response in
+            switch response.result {
+                case let .success(result):
+                    print(result)
+                    break
+                case let .failure(error):
+                    print(error.localizedDescription)
+                    break
+            }
+        }
+    }
+    
+    // MARK: - PUT
     func salvaAlunosNoServidor(parametros: Array<Dictionary<String, String>>) {
         guard let url = URL(string: "http://localhost:8080/api/aluno/lista") else { return }
         var requisicao = URLRequest(url: url)

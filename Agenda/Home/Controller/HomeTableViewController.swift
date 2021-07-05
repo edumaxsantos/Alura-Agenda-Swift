@@ -47,6 +47,8 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
     }
     
     func recuperaAluno(filtro: String = "") {
+        
+        AlunoAPI().recuperaAlunos()
         let pesquisaAluno: NSFetchRequest<Aluno> = Aluno.fetchRequest()
         let ordenaPorNome = NSSortDescriptor(key: "nome", ascending: true)
         
